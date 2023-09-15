@@ -8,6 +8,8 @@ with open("laureates.csv", "r") as f:
     reader = csv.DictReader(f)
     laureates = list(reader)
 
+# @app.route converts the function's return value into an HTTP response to be displayed by an HTTP client
+
 
 @app.route("/")
 def index():
@@ -22,6 +24,7 @@ def laureate_list():
     if not request.args.get("surname"):
         return jsonify(results)
 
+    # creates a variable for what the user searches, its running constantly, get the sring using request.arg.get
     search_string = request.args.get("surname").lower().strip()
 
     for laureate in laureates:
@@ -29,6 +32,7 @@ def laureate_list():
             results.append(laureate)
 
     return jsonify(results)
+# formats into json and returns the results
 
 
 app.run(debug=True)
