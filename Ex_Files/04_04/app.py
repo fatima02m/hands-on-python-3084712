@@ -31,7 +31,7 @@ def laureate_list():
         name = laureate["name"].lower()
         # by adding brackets it allows for partial search
         # if search_string in laureate["surname"].lower()
-        if (search_string in surname):# or (search_string in name):
+        if (search_string in surname):  # or (search_string in name):
             results.append(laureate)
 
     return jsonify(results)
