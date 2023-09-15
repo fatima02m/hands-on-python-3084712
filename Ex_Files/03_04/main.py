@@ -33,8 +33,7 @@ for laureate in laureates:
     first_name = laureate["name"]
     if first_name[0] == "A":
         laureates_beginning_with_a.append(laureate)
-
-pprint(laureates_beginning_with_a)
+# could have just done laureate["name"][0]
 
 with open("laureates.json", "w") as f:
     json.dump(laureates_beginning_with_a, f, indent=2)
